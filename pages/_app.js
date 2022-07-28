@@ -15,12 +15,27 @@ import { SWRConfig } from "swr";
 
 const clientSideEmotionCache = createEmotionCache();
 
+//samplpe fetcher
+const fetcher = async (url) => {
+  try {
+    const res = await Axios.get(url);
+    return res.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+};
+
 export default function MyApp(props) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
     <>
-      <SWRConfig value={options}>
+      <SWRConfig
+        value={{
+          fetcher,
+          dedupingInterval: 8000,
+        }}
+      >
         <CacheProvider value={emotionCache}>
           <Head>
             <meta
