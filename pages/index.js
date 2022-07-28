@@ -31,14 +31,14 @@ export default function Home() {
       <Typography variant="body2">body2 tag</Typography>
       <Typography variant="subtitle1">subtitle1 tag</Typography>
       <Typography variant="h1" className={classes.red}>
-        Red
+        Primary
       </Typography>
       <Typography variant="h1" className={classes.purple}>
-        Purple
+        Secondary
       </Typography>
-      <div className="text-3xl text-green-600 p-2">Hello Geeks!</div>{" "}
+      <div className="text-3xl text-red-500 p-2">Text with tailwind css</div>{" "}
       <Link href="/about">
-        <Button>About</Button>
+        <Button color="secondary">Click me</Button>
       </Link>
     </div>
   );
